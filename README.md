@@ -1,4 +1,4 @@
-# posthtml-css-prop <img align="right" height="100" title="PostHTML logo" src="http://posthtml.github.io/posthtml/logo.svg">
+# posthtml-css-prop
 
 [![Actions Status][action]][action-url]
 [![NPM][npm]][npm-url]
