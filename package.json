@@ -15,5 +15,10 @@
   "bugs": {
     "url": "https://github.com/shimech/posthtml-css-prop/issues"
   },
-  "homepage": "https://github.com/shimech/posthtml-css-prop#readme"
+  "homepage": "https://github.com/shimech/posthtml-css-prop#readme",
+  "devDependencies": {
+    "jest": "^28.0.2",
+    "posthtml": "^0.16.6",
+    "prettier": "^2.6.2"
+  }
 }
