@@ -5,7 +5,7 @@
 [![Coverage][cover]][cover-badge]
 [![XO code style][style]][style-url]
 
-Clone this repo and explain what your plugin do and why thousands of people need it ;)
+[PostHTML](https://github.com/posthtml/posthtml) plugin to support [css prop](https://emotion.sh/docs/css-prop) like emotion.
 
 Before:
 

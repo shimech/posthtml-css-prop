@@ -1,10 +1,14 @@
 {
   "name": "posthtml-css-prop",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "PostHTML plugin to support css prop like emotion.",
+  "main": "lib/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint \"./lib/**/*.js\"",
+    "lint:fix": "npm run lint -- --fix",
+    "format": "prettier \"./lib/**/*.js\" --write",
+    "prepare": "husky install"
   },
   "repository": {
     "type": "git",
@@ -17,8 +21,14 @@
   },
   "homepage": "https://github.com/shimech/posthtml-css-prop#readme",
   "devDependencies": {
+    "eslint": "^8.14.0",
+    "husky": "^7.0.4",
     "jest": "^28.0.2",
+    "lint-staged": "^12.4.1",
     "posthtml": "^0.16.6",
     "prettier": "^2.6.2"
-  }
+  },
+  "keywords": [
+    "posthtml"
+  ]
 }
