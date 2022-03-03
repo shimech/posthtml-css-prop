@@ -4,7 +4,6 @@
   "description": "PostHTML plugin to support css prop like emotion.",
   "main": "lib/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint \"./lib/**/*.js\"",
     "lint:fix": "npm run lint -- --fix",
     "format": "prettier \"./lib/**/*.js\" --write",
@@ -21,11 +20,13 @@
   },
   "homepage": "https://github.com/shimech/posthtml-css-prop#readme",
   "devDependencies": {
+    "@emotion/css": "^11.9.0",
     "eslint": "^8.14.0",
     "husky": "^7.0.4",
     "jest": "^28.0.2",
     "lint-staged": "^12.4.1",
     "posthtml": "^0.16.6",
+    "posthtml-attrs-parser": "^0.1.1",
     "prettier": "^2.6.2"
   },
   "keywords": [
