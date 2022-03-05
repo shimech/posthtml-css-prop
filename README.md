@@ -12,7 +12,10 @@ Before:
 ```html
 <html>
   <body>
-    <p class="wow">OMG</p>
+    <h1 css-prop="font-size: 24px">Title</h1>
+    <div class="foo" css-prop="text-align: center">
+      <span css-prop="color: red">Hello World!</span>
+    </div>
   </body>
 </html>
 ```
@@ -20,17 +23,15 @@ Before:
 After:
 
 ```html
-<svg xmlns="http://www.w3.org/2000/svg">
-  <text
-    class="wow"
-    id="wow_id"
-    fill="#4A83B4"
-    fill-rule="evenodd"
-    font-family="Verdana"
-  >
-    OMG
-  </text>
-</svg>
+<html>
+  <head></head>
+  <body>
+    <h1 class="css-13qr7ag">Title</h1>
+    <div class="css-1di0pkk foo">
+      <span class="css-15yx1q8">Hello World!</span>
+    </div>
+  </body>
+</html>
 ```
 
 ## Install
@@ -55,7 +56,7 @@ posthtml()
   .use(
     PLUGIN_NAME_CAMEL({
       /* options */
-    })
+    }),
   )
   .process(html /*, options */)
   .then((result) => fs.writeFileSync("./after.html", result.html));
