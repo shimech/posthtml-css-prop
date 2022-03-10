@@ -1,10 +1,13 @@
 const posthtml = require("posthtml");
 const html = `
     <html>
+        <head>
+            <style></style>
+        </head>
         <body>
-            <h1 css-prop="font-size: 24px">Title</h1>
-            <div class="foo" css-prop="text-align: center">
-                <span css-prop="color: red">Hello World!</span>
+            <h1 css-prop="text-align: center; font-size: 24px;">Title</h1>
+            <div class="foo" css-prop="display: flex;">
+                <span css-prop="color: red;">Hello World!</span>
             </div>
         </body>
     </html>

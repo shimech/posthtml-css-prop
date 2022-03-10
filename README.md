@@ -11,9 +11,12 @@ Before:
 
 ```html
 <html>
+  <head>
+    <style></style>
+  </head>
   <body>
-    <h1 css-prop="font-size: 24px">Title</h1>
-    <div class="foo" css-prop="text-align: center">
+    <h1 css-prop="text-align: center; font-size: 24px">Title</h1>
+    <div class="foo" css-prop="display: flex">
       <span css-prop="color: red">Hello World!</span>
     </div>
   </body>
@@ -24,11 +27,24 @@ After:
 
 ```html
 <html>
-  <head></head>
+  <head>
+    <style>
+      .css-1qavfe5 {
+        text-align: center;
+        font-size: 24px;
+      }
+      .css-ymvpej {
+        display: flex;
+      }
+      .css-1vhj9jp {
+        color: red;
+      }
+    </style>
+  </head>
   <body>
-    <h1 class="css-13qr7ag">Title</h1>
-    <div class="css-1di0pkk foo">
-      <span class="css-15yx1q8">Hello World!</span>
+    <h1 class="css-1qavfe5">Title</h1>
+    <div class="css-ymvpej foo">
+      <span class="css-1vhj9jp">Hello World!</span>
     </div>
   </body>
 </html>
@@ -36,9 +52,7 @@ After:
 
 ## Install
 
-Describe how big guys can install your plugin.
-
-```bash
+```shell
 npm install posthtml-css-prop
 ```
 
@@ -48,57 +62,27 @@ Describe how people can use this plugin. Include info about build systems if it'
 necessary.
 
 ```javascript
-const fs = require("fs");
 const posthtml = require("posthtml");
-const PLUGIN_NAME_CAMEL = require("PLUGIN_NAME");
+const html = `
+  <html>
+    <head>
+      <style></style>
+    </head>
+    <body>
+      <h1 css-prop="text-align: center; font-size: 24px;">Title</h1>
+        <div class="foo" css-prop="display: flex;">
+          <span css-prop="color: red;">Hello World!</span>
+        </div>
+    </body>
+  </html>
+`;
 
 posthtml()
-  .use(
-    PLUGIN_NAME_CAMEL({
-      /* options */
-    }),
-  )
-  .process(html /*, options */)
-  .then((result) => fs.writeFileSync("./after.html", result.html));
-```
-
-## Options
-
-Describe all features of your plugin with examples of usage.
-
-### Feature
-
-Before:
-
-```html
-<html>
-  <body>
-    <p>OMG</p>
-  </body>
-</html>
-```
-
-Add option:
-
-```js
-const fs = require("fs");
-const posthtml = require("posthtml");
-const PLUGIN_NAME_CAMEL = require("PLUGIN_NAME");
-
-posthtml()
-  .use(PLUGIN_NAME_CAMEL({ feature: "wow" }))
-  .process(html /*, options */)
-  .then((result) => fs.writeFileSync("./after.html", result.html));
-```
-
-After:
-
-```html
-<html>
-  <body>
-    <p class="wow">OMG</p>
-  </body>
-</html>
+  .use(require("posthtml-css-prop")())
+  .process(html)
+  .then(function (result) {
+    console.log(result.html);
+  });
 ```
 
 ### Contributing
