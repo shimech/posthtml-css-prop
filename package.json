@@ -4,6 +4,7 @@
   "description": "PostHTML plugin to support css prop like emotion.",
   "main": "lib/index.js",
   "scripts": {
+    "test": "jest --passWithNoTests",
     "lint": "eslint \"./lib/**/*.js\"",
     "lint:fix": "npm run lint -- --fix",
     "format": "prettier \"./lib/**/*.js\" --write",
