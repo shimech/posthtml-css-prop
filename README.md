@@ -1,6 +1,6 @@
 # posthtml-css-prop
 
-[![Actions Status][action]][action-url]
+![Test](https://github.com/shimech/posthtml-css-prop/actions/workflows/test/badge.svg)
 [![NPM][npm]][npm-url]
 [![Coverage][cover]][cover-badge]
 [![XO code style][style]][style-url]
