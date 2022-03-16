@@ -16,6 +16,4 @@ const html = `
 posthtml()
   .use(require("../lib")())
   .process(html)
-  .then(function (result) {
-    console.log(result.html);
-  });
+  .then((result) => console.log(result.html));

@@ -1,10 +1,12 @@
 {
   "env": {
     "commonjs": true,
+    "jest/globals": true,
     "node": true
   },
   "extends": "eslint:recommended",
   "parserOptions": {
     "ecmaVersion": "latest"
-  }
+  },
+  "plugins": ["jest"]
 }
