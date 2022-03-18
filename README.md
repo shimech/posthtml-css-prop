@@ -1,9 +1,6 @@
 # posthtml-css-prop
 
 ![Test](https://github.com/shimech/posthtml-css-prop/actions/workflows/test.yml/badge.svg)
-[![NPM][npm]][npm-url]
-[![Coverage][cover]][cover-badge]
-[![XO code style][style]][style-url]
 
 [PostHTML](https://github.com/posthtml/posthtml) plugin to support [css prop](https://emotion.sh/docs/css-prop) like emotion.
 
