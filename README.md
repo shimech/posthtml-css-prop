@@ -55,9 +55,6 @@ npm install posthtml-css-prop
 
 ## Usage
 
-Describe how people can use this plugin. Include info about build systems if it's
-necessary.
-
 ```javascript
 const posthtml = require("posthtml");
 const html = `
@@ -75,11 +72,9 @@ const html = `
 `;
 
 posthtml()
-  .use(require("posthtml-css-prop")())
+  .use(cssProp())
   .process(html)
-  .then(function (result) {
-    console.log(result.html);
-  });
+  .then((result) => console.log(result.html));
 ```
 
 ### Contributing
