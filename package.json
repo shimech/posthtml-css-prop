@@ -36,7 +36,7 @@
     "posthtml-plugin"
   ],
   "license": "MIT",
-  "main": "lib/index.js",
+  "main": "./dist/index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/shimech/posthtml-css-prop.git"
