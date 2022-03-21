@@ -50,7 +50,7 @@ After:
 ## Install
 
 ```shell
-npm install posthtml-css-prop
+npm install @shimech/posthtml-css-prop
 ```
 
 ## Usage

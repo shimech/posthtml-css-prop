@@ -1,0 +1,12 @@
+.github
+.husky
+.vscode
+node_modules
+src
+examples
+.gitignore
+.node-version
+jest.config.js
+LICENSE
+*.md
+*.json

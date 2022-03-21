@@ -1,0 +1,6 @@
+{
+  "name": "examples",
+  "devDependencies": {
+    "posthtml-css-prop": "^1.0.0"
+  }
+}
