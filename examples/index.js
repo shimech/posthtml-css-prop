@@ -1,5 +1,5 @@
 const posthtml = require("posthtml");
-const cssProp = require("posthtml-css-prop").default;
+const cssProp = require("../dist").default;
 const html = `
     <html>
         <head>

@@ -1,2 +1,1 @@
-import { cssProp } from "./cssProp";
-export default cssProp;
+export { cssProp as default } from "./cssProp";

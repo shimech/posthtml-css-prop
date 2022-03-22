@@ -42,7 +42,7 @@
     "url": "git+https://github.com/shimech/posthtml-css-prop.git"
   },
   "scripts": {
-    "build": "tsup ./src/index.ts --format cjs --dts --minify",
+    "build": "rm -rf ./dist && tsup ./src/index.ts --format cjs --dts --minify",
     "dev": "npm run build -- --watch",
     "lint": "eslint \"./src/**/*.ts\"",
     "lint:fix": "npm run lint -- --fix",

@@ -7,6 +7,5 @@ examples
 .gitignore
 .node-version
 jest.config.js
-LICENSE
 *.md
 *.json
