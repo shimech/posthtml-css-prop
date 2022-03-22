@@ -6,6 +6,6 @@ src
 examples
 .gitignore
 .node-version
-jest.config.js
 *.md
 *.json
+*.config.js
