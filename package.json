@@ -26,11 +26,9 @@
     "husky": "^7.0.4",
     "lint-staged": "^12.4.1",
     "posthtml": "^0.16.6",
-    "posthtml-attrs-parser": "^0.1.1",
     "prettier": "^2.6.2",
     "rollup": "^2.70.2",
     "ts-jest": "^27.1.4",
-    "ts-node": "^10.7.0",
     "typescript": "^4.6.4"
   },
   "homepage": "https://github.com/shimech/posthtml-css-prop#readme",
