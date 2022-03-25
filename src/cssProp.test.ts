@@ -35,4 +35,21 @@ describe("css prop test", () => {
       expect(purify(result.html)).toBe(purify(expected));
     });
   });
+
+  test("change nothing if css-prop attributes do not exist.", () => {
+    const inputHtml = `
+        <html>
+            <head>
+                <style></style>
+            </head>
+            <body>
+                <div>Hello World!</div>
+            </body>
+        </html>
+    `;
+    const expected = inputHtml;
+    postHtmlProcess(inputHtml).then((result) => {
+      expect(purify(result.html)).toBe(purify(expected));
+    });
+  });
 });
