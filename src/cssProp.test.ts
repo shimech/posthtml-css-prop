@@ -1,17 +1,19 @@
+import { flush } from "@emotion/css";
 import posthtml from "posthtml";
 import { cssProp } from "./cssProp";
-import { purify } from "./utils";
 
 const postHtmlProcess = (inputHtml: string) =>
   posthtml().use(cssProp()).process(inputHtml);
 
+const purify = (str: string): string => str.replace(/\s+/g, "");
+
+afterEach(() => flush());
+
 describe("css prop test", () => {
-  test("assign class attribute to elements with css-prop attribute and insert css in <style>", () => {
+  test("assign class attribute to elements with css-prop attribute and insert <style>", () => {
     const inputHtml = `
         <html>
-            <head>
-                <style></style>
-            </head>
+            <head></head>
             <body>
                 <div css-prop="display: flex;">Hello World!</div>
             </body>
@@ -20,14 +22,10 @@ describe("css prop test", () => {
     const expected = `
         <html>
             <head>
-                <style>
-                    .css-1q8jsgx {
-                        display: flex;
-                    }
-                </style>
+                <style data-posthtml-css-prop="css1q8jsgx">.css-1q8jsgx{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;}</style>
             </head>
             <body>
-                <div class="css-1q8jsgx">Hello World!</div>
+                <div class="css-1q8jsgx">HelloWorld!</div>
             </body>
         </html>
     `;
@@ -39,9 +37,7 @@ describe("css prop test", () => {
   test("change nothing if css-prop attributes do not exist.", () => {
     const inputHtml = `
         <html>
-            <head>
-                <style></style>
-            </head>
+            <head></head>
             <body>
                 <div>Hello World!</div>
             </body>

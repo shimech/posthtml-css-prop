@@ -4,18 +4,17 @@
 ![Test](https://github.com/shimech/posthtml-css-prop/actions/workflows/test.yml/badge.svg)
 
 [PostHTML](https://github.com/posthtml/posthtml) plugin to support [css prop](https://emotion.sh/docs/css-prop) like emotion.
+This package is a wrapper of [emotion](https://emotion.sh).
 
 Before:
 
 ```html
 <html>
-  <head>
-    <style></style>
-  </head>
+  <head></head>
   <body>
     <h1 css-prop="text-align: center; font-size: 24px;">Title</h1>
     <div class="foo" css-prop="display: flex;">
-      <span css-prop="color: red;">Hello World!</span>
+      <span css-prop="color: red; &:hover { color: blue; }">Hello World!</span>
     </div>
   </body>
 </html>
@@ -26,23 +25,33 @@ After:
 ```html
 <html>
   <head>
-    <style>
-      .css-1qavfe5 {
+    <style data-posthtml-css-prop="css 1pwdwr4">
+      .css-1pwdwr4 {
         text-align: center;
         font-size: 24px;
       }
-      .css-ymvpej {
+    </style>
+    <style data-posthtml-css-prop="css 1q8jsgx">
+      .css-1q8jsgx {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
         display: flex;
       }
-      .css-1vhj9jp {
+    </style>
+    <style data-posthtml-css-prop="css qrwk6l">
+      .css-qrwk6l {
         color: red;
+      }
+      .css-qrwk6l:hover {
+        color: blue;
       }
     </style>
   </head>
   <body>
-    <h1 class="css-1qavfe5">Title</h1>
-    <div class="css-ymvpej foo">
-      <span class="css-1vhj9jp">Hello World!</span>
+    <h1 class="css-1pwdwr4">Title</h1>
+    <div class="css-1q8jsgx foo">
+      <span class="css-qrwk6l">Hello World!</span>
     </div>
   </body>
 </html>
@@ -60,13 +69,11 @@ npm install @shimech/posthtml-css-prop
 const posthtml = require("posthtml");
 const html = `
   <html>
-    <head>
-      <style></style>
-    </head>
+    <head></head>
     <body>
       <h1 css-prop="text-align: center; font-size: 24px;">Title</h1>
       <div class="foo" css-prop="display: flex;">
-        <span css-prop="color: red;">Hello World!</span>
+        <span css-prop="color: red; &:hover { color: blue; }">Hello World!</span>
       </div>
     </body>
   </html>
@@ -76,6 +83,16 @@ posthtml()
   .use(require("@shimech/posthtml-css-prop")())
   .process(html)
   .then((result) => console.log(result.html));
+// Output:
+// <html>
+//     <head><style data-posthtml-css-prop="css 1pwdwr4">.css-1pwdwr4{text-align:center;font-size:24px;}</style><style data-posthtml-css-prop="css 1q8jsgx">.css-1q8jsgx{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;}</style><style data-posthtml-css-prop="css qrwk6l">.css-qrwk6l{color:red;}.css-qrwk6l:hover{color:blue;}</style></head>
+//     <body>
+//         <h1 class="css-1pwdwr4">Title</h1>
+//         <div class="css-1q8jsgx foo">
+//             <span class="css-qrwk6l">Hello World!</span>
+//         </div>
+//     </body>
+// </html>
 ```
 
 ### Contributing

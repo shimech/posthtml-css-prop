@@ -1,23 +1,18 @@
-import { css } from "@emotion/css";
+import { css, cache } from "@emotion/css";
 import type { Node, StringMatcher } from "posthtml";
-import type { Css } from "./type";
-import { purify } from "./utils";
+import { parser } from "posthtml-parser";
+import { generateStyleTag } from "./utils";
 
-const addClass = (prevClass: string | void, className: string): string => {
+const prependClass = (prevClass: string | void, className: string): string => {
   if (!prevClass) {
     return className;
   }
   return `${className} ${prevClass}`;
 };
 
-const stringfyCss = (className: string, style: string): string =>
-  purify(`.${className}{${style}}`);
-
 export const cssProp =
   () =>
   (tree: Node): Node => {
-    const csses: Css[] = [];
-
     tree.match<StringMatcher, { "css-prop"?: RegExp }>(
       { attrs: { "css-prop": /\w+/ } },
       (node) => {
@@ -25,34 +20,26 @@ export const cssProp =
         if (!style) {
           return node;
         }
-
         const className = css`
           ${style}
         `;
-        csses.push({ className, style });
-
-        const nextAttrs = {
+        node.attrs = {
           ...prevAttrs,
-          class: addClass(prevAttrs.class, className),
+          class: prependClass(prevAttrs.class, className),
         };
-        node.attrs = nextAttrs;
         return node;
       },
     );
 
-    const serializedCsses = csses.map((css) =>
-      stringfyCss(css.className, css.style),
-    );
-
-    tree.match({ tag: "style" }, (node) => {
+    tree.match({ tag: "head" }, (node) => {
       const prevContent = node.content || [];
-      const nextContent = prevContent.map((content) => {
-        if (typeof content === "string") {
-          return purify(content);
-        }
-        return content;
-      });
-      node.content = nextContent.concat(serializedCsses);
+      const styles = Object.entries(cache.inserted).map(
+        ([id, css]) =>
+          parser(
+            generateStyleTag(cache.key, id, css as string),
+          ) as unknown as Node,
+      );
+      node.content = [...prevContent, ...styles];
       return node;
     });
 

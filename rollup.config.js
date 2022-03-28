@@ -1,6 +1,7 @@
 import babel from "@rollup/plugin-babel";
 import typescript from "@rollup/plugin-typescript";
-import resolve from "@rollup/plugin-node-resolve";
+import nodeResolve from "@rollup/plugin-node-resolve";
+import commonjs from "@rollup/plugin-commonjs";
 
 const extensions = [".ts"];
 
@@ -10,8 +11,10 @@ export default {
     dir: "./dist/",
     format: "cjs",
   },
+  external: ["posthtml-parser"],
   plugins: [
-    resolve({ extensions }),
+    nodeResolve({ extensions }),
+    commonjs(),
     babel({ extensions, babelHelpers: "bundled" }),
     typescript(),
   ],
