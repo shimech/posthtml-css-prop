@@ -1,7 +1,7 @@
 {
   "name": "@shimech/posthtml-css-prop",
   "description": "PostHTML plugin to support css prop like emotion.",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "author": "Shuntaro Shimizu",
   "bugs": {
     "url": "https://github.com/shimech/posthtml-css-prop/issues"
