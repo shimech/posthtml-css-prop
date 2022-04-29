@@ -57,7 +57,5 @@
     "prepare": "husky install",
     "test": "jest",
     "test:watch": "npm run test -- --watch"
-  },
-  "type": "commonjs",
-  "types": "./dist/index.d.ts"
+  }
 }
