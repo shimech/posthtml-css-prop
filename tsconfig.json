@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./",
+    "esModuleInterop": true,
+    "lib": ["ESNext"],
+    "module": "CommonJS",
+    "strict": true,
+    "target": "ES2022"
+  },
+  "include": ["./src/**/*.ts"]
+}

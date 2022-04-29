@@ -1,7 +1,8 @@
-const posthtml = require("posthtml");
-const cssProp = require(".");
+import posthtml from "posthtml";
+import { cssProp } from "./cssProp";
+import { purify } from "./utils";
 
-const postHtmlProcess = (inputHtml) =>
+const postHtmlProcess = (inputHtml: string) =>
   posthtml().use(cssProp()).process(inputHtml);
 
 describe("css prop test", () => {
@@ -20,20 +21,18 @@ describe("css prop test", () => {
         <html>
             <head>
                 <style>
-                    .css-vyoujf {
+                    .css-1q8jsgx {
                         display: flex;
                     }
                 </style>
             </head>
             <body>
-                <div class="css-vyoujf">Hello World!</div>
+                <div class="css-1q8jsgx">Hello World!</div>
             </body>
         </html>
     `;
-    postHtmlProcess(inputHtml).then((result) =>
-      expect(result.html.replace(/\s+/g, "")).toBe(
-        expected.replace(/\s+/g, ""),
-      ),
-    );
+    postHtmlProcess(inputHtml).then((result) => {
+      expect(purify(result.html)).toBe(purify(expected));
+    });
   });
 });

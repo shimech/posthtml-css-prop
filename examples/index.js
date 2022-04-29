@@ -1,4 +1,5 @@
 const posthtml = require("posthtml");
+const cssProp = require("../dist").default;
 const html = `
     <html>
         <head>
@@ -14,6 +15,6 @@ const html = `
 `;
 
 posthtml()
-  .use(require("../lib")())
+  .use(cssProp())
   .process(html)
   .then((result) => console.log(result.html));
