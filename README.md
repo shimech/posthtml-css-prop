@@ -70,9 +70,9 @@ const html = `
     </head>
     <body>
       <h1 css-prop="text-align: center; font-size: 24px;">Title</h1>
-        <div class="foo" css-prop="display: flex;">
-          <span css-prop="color: red;">Hello World!</span>
-        </div>
+      <div class="foo" css-prop="display: flex;">
+        <span css-prop="color: red;">Hello World!</span>
+      </div>
     </body>
   </html>
 `;
