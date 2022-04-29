@@ -73,7 +73,7 @@ const html = `
 `;
 
 posthtml()
-  .use(cssProp())
+  .use(require("@shimech/posthtml-css-prop")())
   .process(html)
   .then((result) => console.log(result.html));
 ```
