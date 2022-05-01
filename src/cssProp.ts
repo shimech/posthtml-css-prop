@@ -23,11 +23,13 @@ export const cssProp =
         const className = css`
           ${style}
         `;
-        node.attrs = {
-          ...prevAttrs,
-          class: prependClass(prevAttrs.class, className),
+        return {
+          ...node,
+          attrs: {
+            ...prevAttrs,
+            class: prependClass(prevAttrs.class, className),
+          },
         };
-        return node;
       },
     );
 
@@ -39,8 +41,10 @@ export const cssProp =
             generateStyleTag(cache.key, id, css as string),
           ) as unknown as Node,
       );
-      node.content = [...prevContent, ...styles];
-      return node;
+      return {
+        ...node,
+        content: [...prevContent, ...styles],
+      };
     });
 
     return tree;
